@@ -1,0 +1,791 @@
+{
+  "datasets": [
+    {
+      "name": "18d18159",
+      "displayName": "gold_biggest_atl_gain",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_biggest_atl_gain"
+      ]
+    },
+    {
+      "name": "120a3a55",
+      "displayName": "gold_circulating_supply_pct",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_circulating_supply_pct"
+      ]
+    },
+    {
+      "name": "0c7ba61b",
+      "displayName": "gold_closest_to_ath",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_closest_to_ath"
+      ]
+    },
+    {
+      "name": "a7ff46a1",
+      "displayName": "gold_faresh_to_ath",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_faresh_to_ath"
+      ]
+    },
+    {
+      "name": "f224a78b",
+      "displayName": "gold_furthest_to_ath",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_furthest_to_ath"
+      ]
+    },
+    {
+      "name": "dbd0892c",
+      "displayName": "gold_market_cap_dominance",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_market_cap_dominance"
+      ]
+    },
+    {
+      "name": "878f4cd5",
+      "displayName": "gold_recent_ath",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_recent_ath"
+      ]
+    },
+    {
+      "name": "a26ebc08",
+      "displayName": "gold_stablecoin_analysis",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_stablecoin_analysis"
+      ]
+    },
+    {
+      "name": "1894de8f",
+      "displayName": "gold_supply_type",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_supply_type"
+      ]
+    },
+    {
+      "name": "677e22a8",
+      "displayName": "gold_top10_market_cap",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_top10_market_cap"
+      ]
+    },
+    {
+      "name": "3d341afd",
+      "displayName": "gold_top10_volume",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_top10_volume"
+      ]
+    },
+    {
+      "name": "63f2a60c",
+      "displayName": "gold_top_gainers",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_top_gainers"
+      ]
+    },
+    {
+      "name": "e3d1c510",
+      "displayName": "gold_top_losers",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_top_losers"
+      ]
+    },
+    {
+      "name": "5304b9ec",
+      "displayName": "gold_volatility",
+      "queryLines": [
+        "SELECT * FROM crypto.crypto_schema.gold_volatility"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "86395037",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "total-market-cap",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dbd0892c",
+                  "fields": [
+                    {
+                      "name": "sum(market_cap)",
+                      "expression": "SUM(`market_cap`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": "Total Market\nCap"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#D5D530"
+                }
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(market_cap)"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "bitcoin-dominance",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dbd0892c",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "market_cap",
+                      "expression": "`market_cap`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": "Dominance"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#E139EB"
+                }
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "market_cap"
+                },
+                "target": {
+                  "fieldName": "name",
+                  "rowNumber": 0,
+                  "style": {
+                    "fontSize": 18
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "stable-coins-found",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a26ebc08",
+                  "fields": [
+                    {
+                      "name": "is_stable",
+                      "expression": "`is_stable`"
+                    },
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "headerAlignment": "center",
+                "title": "Stable Coins Found"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#16CC30"
+                }
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(*)"
+                },
+                "target": {
+                  "fieldName": "is_stable"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "top-10-by-market-cap",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "677e22a8",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "sum(market_cap)",
+                      "expression": "SUM(`market_cap`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 by Market Cap",
+                "headerAlignment": "center"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#CCA9C8"
+                }
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(market_cap)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "name",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": false
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7614e039",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dbd0892c",
+                  "fields": [
+                    {
+                      "name": "dominance_%",
+                      "expression": "`dominance_%`"
+                    },
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": false
+              },
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "dominance_%",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "axis": {
+                    "hideTitle": false
+                  },
+                  "displayName": "Market Cap Dominanace %"
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "top-10-gainers-in-24hrs",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "63f2a60c",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "price_change_percentage_24h",
+                      "expression": "`price_change_percentage_24h`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 Gainers in 24hrs",
+                "headerAlignment": "center"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#4CD64C"
+                }
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "price_change_percentage_24h",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Top 10 Gainers in 24hrs",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "name",
+                  "axis": {
+                    "hideLabels": false,
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "top-10-losers-24hrs",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e3d1c510",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "price_change_percentage_24h",
+                      "expression": "`price_change_percentage_24h`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 losers in 24hrs",
+                "headerAlignment": "center"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#DF0E0E"
+                }
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "price_change_percentage_24h",
+                  "axis": {
+                    "hideTitle": true,
+                    "title": "Top 10 losers in 24hrs"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "name",
+                  "axis": {
+                    "hideTitle": true,
+                    "hideLabels": false
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x"
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "top-10-volatile-coins",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5304b9ec",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "expression": "`name`"
+                    },
+                    {
+                      "name": "volatility",
+                      "expression": "`volatility`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 most Volatile Coins",
+                "headerAlignment": "center"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#51BBC5"
+                }
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "volatility",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "name",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "supply-type",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "1894de8f",
+                  "fields": [
+                    {
+                      "name": "sum(coin_count)",
+                      "expression": "SUM(`coin_count`)"
+                    },
+                    {
+                      "name": "supply_type",
+                      "expression": "`supply_type`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Supply Type",
+                "headerAlignment": "center"
+              },
+              "style": {
+                "fontColor": {
+                  "dark": "#61A3E6"
+                }
+              },
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(coin_count)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "axis": {
+                    "hideTitle": true
+                  }
+                },
+                "color": {
+                  "fieldName": "supply_type",
+                  "legend": {
+                    "hide": false,
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "unlimited",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 3
+                        }
+                      },
+                      {
+                        "value": "limited",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 4
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 15,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
