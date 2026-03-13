@@ -38,7 +38,8 @@ crypto-price-pipeline/
 │   ├── 06_gold_supply_analysis.ipynb       ← Supply analysis
 │   └── 07_gold_stablecoin_analysis.ipynb   ← Stablecoin analysis
 ├── screenshots/
-│   ├── dashboard.png                       ← Databricks SQL Dashboard
+│   ├── dashboard_1.png                     ← Databricks SQL Dashboard (part 1)
+│   ├── dashboard_2.png                     ← Databricks SQL Dashboard (part 2)
 │   ├── pipeline_tasks.png                  ← Databricks Jobs task flow
 │   └── pipeline_runs.png                   ← Successful pipeline runs
 └── README.md
@@ -122,7 +123,8 @@ crypto-price-pipeline/
 
 ## 📊 Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard Part 1](screenshots/dashboard_1.png)
+![Dashboard Part 2](screenshots/dashboard_2.png)
 
 ### 10 Visualizations:
 - **Row 1** — 3 Metric Cards: Total Market Cap, Bitcoin Dominance %, Stablecoin Count
