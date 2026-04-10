@@ -198,3 +198,4 @@ Gold tasks (3–7) run **in parallel** after Silver completes!
 
 **MinatoNamikaze25**
 - GitHub: [@MinatoNamikaze25](https://github.com/MinatoNamikaze25)
+- LinkedIN : [@MinatoNamikaze25](https://www.linkedin.com/in/tarun1221/)
